@@ -16,9 +16,8 @@ export const initDynamicRouter = async () => {
   const authStore = useAuthStore();
 
   try {
-    // 获取菜单列表和按钮权限列表
-    await authStore.getAuthMenuList();
-    await authStore.getAuthButtonList();
+    // 获取用户信息和权限角色
+    await authStore.fetchUserInfo();
 
     // 判断当前用户有没有菜单权限
     if (!authStore.authMenuListGet.length) {

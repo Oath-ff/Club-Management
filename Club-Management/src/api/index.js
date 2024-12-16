@@ -3,7 +3,7 @@ import axios from "axios";
 import { ElMessage } from "element-plus";
 import { useUserStore } from "@/stores/modules/user";
 import router from "@/routers";
-import apiConfig from "@/config/apiConfig"; // 引入配置文件
+import apiConfig from "@/api/config/apiConfig"; // 引入配置文件
 
 // 创建 Axios 实例
 const apiClient = axios.create({

@@ -5,7 +5,7 @@ export const useUserStore = defineStore({
   id: "club-user",
   state: () => ({
     token: "",
-    userInfo: { name: "Club User" }
+    userInfo: {} // 初始用户信息为空对象
   }),
   getters: {},
   actions: {
@@ -16,6 +16,11 @@ export const useUserStore = defineStore({
     // 设置用户信息
     setUserInfo(userInfo) {
       this.userInfo = userInfo;
+    },
+    // 清除 Token 和用户信息
+    clearAuth() {
+      this.token = "";
+      this.userInfo = {};
     }
   },
   persist: piniaPersistConfig("club-user")
