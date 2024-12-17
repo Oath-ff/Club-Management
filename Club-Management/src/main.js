@@ -40,4 +40,4 @@ Object.keys(Icons).forEach(key => {
   app.component(key, Icons[key]);
 });
 
-app.use(ElementPlus).use(directives).use(router).use(I18n).use(pinia).mount("#app");
+app.use(ElementPlus).use(directives).use(router).use(pinia).mount("#app");

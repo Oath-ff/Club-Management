@@ -5,14 +5,17 @@
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="openDialog('infoRef')">
+        <el-dropdown-item v-if="isLoggedIn" @click="openDialog('infoRef')">
           <el-icon><User /></el-icon>{{ $t("header.personalData") }}
         </el-dropdown-item>
-        <el-dropdown-item @click="openDialog('passwordRef')">
+        <el-dropdown-item v-if="isLoggedIn" @click="openDialog('passwordRef')">
           <el-icon><Edit /></el-icon>{{ $t("header.changePassword") }}
         </el-dropdown-item>
-        <el-dropdown-item divided @click="logout">
+        <el-dropdown-item v-if="isLoggedIn" divided @click="logout">
           <el-icon><SwitchButton /></el-icon>{{ $t("header.logout") }}
+        </el-dropdown-item>
+        <el-dropdown-item v-else @click="redirectToLogin">
+          <el-icon><SwitchButton /></el-icon>未登录，请前往登录
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -24,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { LOGIN_URL } from "@/config";
 import { useRouter } from "vue-router";
 import { logoutApi } from "@/api/modules/login";
@@ -35,6 +38,7 @@ import PasswordDialog from "./PasswordDialog.vue";
 
 const router = useRouter();
 const userStore = useUserStore();
+const isLoggedIn = computed(() => !!userStore.token);
 
 // 退出登录
 const logout = () => {
@@ -53,6 +57,11 @@ const logout = () => {
     await router.replace(LOGIN_URL);
     ElMessage.success("退出登录成功！");
   });
+};
+
+// 跳转到登录页面
+const redirectToLogin = () => {
+  router.push({ name: "login" });
 };
 
 // 打开修改密码和个人信息弹窗

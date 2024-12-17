@@ -36,10 +36,9 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
+import { ref, reactive, onMounted, onBeforeUnmount, computed } from "vue";
 import { useRouter } from "vue-router";
-import { HOME_URL } from "@/config";
-import { LOGIN_URL } from "@/config";
+import { HOME_URL, LOGIN_URL } from "@/config";
 import { ElNotification } from "element-plus";
 import { loginUser } from "@/api/modules/user";
 import { useUserStore } from "@/stores/modules/user";
@@ -47,6 +46,7 @@ import { useTabsStore } from "@/stores/modules/tabs";
 import { useKeepAliveStore } from "@/stores/modules/keepAlive";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
+import { useAuthStore } from "@/stores/modules/auth";
 import md5 from "md5";
 import { getTimeState } from "@/utils/index.js";
 
@@ -54,6 +54,7 @@ const router = useRouter();
 const userStore = useUserStore();
 const tabsStore = useTabsStore();
 const keepAliveStore = useKeepAliveStore();
+const authStore = useAuthStore();
 
 const loginFormRef = ref();
 const loginRules = reactive({
@@ -72,7 +73,7 @@ const loginForm = reactive({
 
 // 计算属性用于启用登录按钮
 const isLoginEnabled = computed(() => {
-  return loginForm.password.length > 5;
+  return loginForm.password.length >= 5;
 });
 
 // 登录
@@ -88,12 +89,12 @@ const login = formEl => {
         password: md5(loginForm.password)
       });
       const data = response.data;
+
       // 设置Token
       userStore.setToken(data);
 
-      // 2.添加动态路由并获取用户信息和角色
+      // 2.添加动态路由
       await initDynamicRouter();
-      await authStore.fetchUserInfo();
 
       // 3.清空 tabs、keepAlive 数据
       await tabsStore.setTabs([]);
@@ -116,7 +117,7 @@ const login = formEl => {
         type: "error",
         duration: 3000
       });
-      useUserStore.clearAuth();
+      userStore.clearAuth();
       router.replace(LOGIN_URL);
     } finally {
       loading.value = false;

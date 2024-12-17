@@ -139,7 +139,9 @@ export const useAuthStore = defineStore({
     // 获取用户的信息和权限角色
     async fetchUserInfo() {
       const { data } = await getUserInfo();
-      this.userRoles = data.role;
+      console.log("User Info:", data);
+      this.userRoles = data.role || [];
+      this.setAuthPermissions(data.role);
     },
     // 设置按钮和菜单权限
     setAuthPermissions(role) {

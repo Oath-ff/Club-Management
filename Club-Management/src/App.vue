@@ -6,7 +6,6 @@
 
 <script setup>
 import { onMounted, reactive, computed } from "vue";
-import { useI18n } from "vue-i18n";
 import { getBrowserLang } from "@/utils";
 import { useTheme } from "@/hooks/useTheme";
 import { ElConfigProvider } from "element-plus";
@@ -19,14 +18,6 @@ const globalStore = useGlobalStore();
 // init theme
 const { initTheme } = useTheme();
 initTheme();
-
-// init language
-const i18n = useI18n();
-onMounted(() => {
-  const language = globalStore.language ?? getBrowserLang();
-  i18n.locale.value = language;
-  globalStore.setGlobalState("language", language);
-});
 
 // element language
 const locale = computed(() => {

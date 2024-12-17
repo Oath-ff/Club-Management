@@ -11,7 +11,15 @@ export const registerUser = params => request.post("/user/register", params);
 export const loginUser = params => request.post("/user/login", params);
 
 // 获取用户详细信息
-export const getUserInfo = () => request.get("/user/userInfo");
+export const getUserInfo = () => {
+  const userStore = useUserStore();
+  const token = userStore.token;
+  return request.get("/user/userInfo", {
+    headers: {
+      Authorization: `${token}`
+    }
+  });
+};
 
 // 更新头像
 export const updateAvatar = avatarUrl => request.patch(`/user/updateAvatar`, null, { params: { avatarUrl } });

@@ -23,5 +23,5 @@ export const useUserStore = defineStore({
       this.userInfo = {};
     }
   },
-  persist: piniaPersistConfig("club-user")
+  persist: piniaPersistConfig("club-user", ["token"]) // 指定 paths 参数
 });

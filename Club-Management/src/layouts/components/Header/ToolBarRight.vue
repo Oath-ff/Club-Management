@@ -1,31 +1,33 @@
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon">
-      <AssemblySize id="assemblySize" />
-      <Language id="language" />
       <SearchMenu id="searchMenu" />
-      <ThemeSetting id="themeSetting" />
       <Message id="message" />
       <Fullscreen id="fullscreen" />
     </div>
-    <span class="username">{{ username }}</span>
-    <Avatar />
+    <span class="username">{{ isLoggedIn ? username : "游客" }}</span>
+    <Avatar v-if="isLoggedIn" />
+    <button v-else @click="redirectToLogin">未登录，请前往登录</button>
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 import { useUserStore } from "@/stores/modules/user";
-import AssemblySize from "./components/AssemblySize.vue";
-import Language from "./components/Language.vue";
 import SearchMenu from "./components/SearchMenu.vue";
-import ThemeSetting from "./components/ThemeSetting.vue";
 import Message from "./components/Message.vue";
 import Fullscreen from "./components/Fullscreen.vue";
 import Avatar from "./components/Avatar.vue";
 
+const router = useRouter();
 const userStore = useUserStore();
-const username = computed(() => userStore.userInfo.name);
+const isLoggedIn = computed(() => !!userStore.token);
+const username = computed(() => userStore.userInfo.username);
+
+const redirectToLogin = () => {
+  router.push({ name: "login" });
+};
 </script>
 
 <style scoped lang="scss">
@@ -46,6 +48,12 @@ const username = computed(() => userStore.userInfo.name);
     margin: 0 20px;
     font-size: 15px;
     color: var(--el-header-text-color);
+  }
+  button {
+    margin-left: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
   }
 }
 </style>

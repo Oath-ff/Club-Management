@@ -8,8 +8,14 @@ class Request {
    * @param {Object} config 额外配置
    * @returns Promise
    */
-  get(url, params, config = {}) {
-    return apiClient.get(url, { params, ...config });
+  get(url, params = {}, config = {}) {
+    if (Object.keys(params).length === 0 && Object.keys(config).length === 0) {
+      return apiClient.get(url); // 如果 params 和 config 都为空，直接发送 URL 请求
+    }
+    if (Object.keys(params).length === 0) {
+      return apiClient.get(url, config); // 如果 params 为空，但 config 不为空，发送 URL 和 config
+    }
+    return apiClient.get(url, { params, ...config }); // 如果 params 不为空，发送包含 params 和 config 的请求
   }
 
   /**
@@ -20,7 +26,7 @@ class Request {
    * @returns Promise
    */
   post(url, data, config = {}) {
-    return apiClient.post(url, data, ...config);
+    return apiClient.post(url, data, config);
   }
 
   /**
@@ -31,7 +37,7 @@ class Request {
    * @returns Promise
    */
   put(url, data, config = {}) {
-    return apiClient.put(url, data, ...config);
+    return apiClient.put(url, data, config);
   }
 
   /**
@@ -42,7 +48,7 @@ class Request {
    * @returns Promise
    */
   patch(url, data, config = {}) {
-    return apiClient.patch(url, data, ...config);
+    return apiClient.patch(url, data, config);
   }
 
   /**
