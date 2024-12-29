@@ -4,7 +4,7 @@ import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils"
 
 // 角色权限映射对象
 const rolePermissions = {
-  ADMIN: {
+  管理员: {
     buttons: [
       "club:create", // 创建社团
       "club:update", // 更新社团信息
@@ -41,7 +41,7 @@ const rolePermissions = {
       { name: "活动记录", path: "/participation/**" }
     ]
   },
-  LEADER: {
+  团长: {
     buttons: [
       "club:update", // 更新社团信息
       "club:detail", // 获取社团详情
@@ -75,7 +75,7 @@ const rolePermissions = {
       { name: "参与管理", path: "/participation/**" }
     ]
   },
-  USER: {
+  用户: {
     buttons: [
       "club:create", // 创建社团
       "club:detail", // 获取社团详情
@@ -96,7 +96,7 @@ const rolePermissions = {
       { name: "活动记录", path: "/participation/**" }
     ]
   },
-  VISITOR: {
+  游客: {
     buttons: [
       "club:detail", // 获取社团详情
       "club:list", // 获取所有社团信息
@@ -138,10 +138,9 @@ export const useAuthStore = defineStore({
   actions: {
     // 获取用户的信息和权限角色
     async fetchUserInfo() {
-      const { data } = await getUserInfo();
-      console.log("User Info:", data);
-      this.userRoles = data.role || [];
-      this.setAuthPermissions(data.role);
+      const data = await getUserInfo();
+      this.userRoles = data.data.role;
+      this.setAuthPermissions(data.data.role);
     },
     // 设置按钮和菜单权限
     setAuthPermissions(role) {

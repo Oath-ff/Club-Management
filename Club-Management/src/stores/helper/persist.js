@@ -7,9 +7,9 @@
 const piniaPersistConfig = (key, paths) => {
   const persist = {
     key,
-    storage: localStorage, // 这里使用 localStorage 来持久化状态
-    // storage: sessionStorage,  // 你也可以使用 sessionStorage
-    paths
+    storage: localStorage, // 使用 localStorage 来持久化状态
+    //storage: sessionStorage, // 使用 sessionStorage
+    paths: Array.isArray(paths) ? paths : [paths]
   };
   return persist;
 };

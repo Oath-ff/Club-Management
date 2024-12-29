@@ -10,10 +10,10 @@ export const staticRouter = [
     redirect: HOME_URL
   },
   {
-    path: "/home",
+    path: HOME_URL,
     name: "Home",
     component: () => import("@/views/home/index.vue"),
-    meta: { title: "Home" }
+    meta: { title: "首页" }
   },
   {
     path: LOGIN_URL,

@@ -1,4 +1,4 @@
-import request from "../request"; // 引入封装的 Request 实例
+import request from "@/api/index.js";
 
 /**
  * @name 活动记录管理模块
