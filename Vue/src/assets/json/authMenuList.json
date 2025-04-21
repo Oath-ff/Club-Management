@@ -1,0 +1,508 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "path": "/home/index",
+      "name": "home",
+      "component": "/home/index",
+      "meta": {
+        "icon": "HomeFilled",
+        "title": "首页",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": true,
+        "isKeepAlive": true
+      }
+    },
+    {
+      "path": "/Club",
+      "name": "Club",
+      "redirect": "/club/createClub",
+      "meta": {
+        "icon": "Management",
+        "title": "社团管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/club/createClub",
+          "name": "createClub",
+          "component": "/club/createClub/index",
+          "meta": {
+            "icon": "DocumentAdd",
+            "title": "创建社团",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/club/detail",
+          "name": "clubDetail",
+          "component": "/club/detail/index",
+          "meta": {
+            "icon": "Reading",
+            "title": "社团详情",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/club/list",
+          "name": "clubList",
+          "component": "/club/list/index",
+          "meta": {
+            "icon": "List",
+            "title": "社团列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/club/update/:id",
+          "name": "clubUpdate",
+          "component": "/club/update/index",
+          "meta": {
+            "icon": "Document",
+            "title": "社团信息修改",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/club/delete/:id",
+          "name": "clubDelete",
+          "component": "/club/delete/index",
+          "meta": {
+            "icon": "DocumentDelete",
+            "title": "删除社团",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/event",
+      "name": "event",
+      "redirect": "/event/add",
+      "meta": {
+        "icon": "Guide",
+        "title": "活动管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/event/add",
+          "name": "addEvent",
+          "component": "/event/add/index",
+          "meta": {
+            "icon": "DocumentAdd",
+            "title": "发布活动",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/event/update/:id",
+          "name": "updateEvent",
+          "component": "/event/update/index",
+          "meta": {
+            "icon": "Document",
+            "title": "修改活动信息",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/event/remove/:id",
+          "name": "removeEvent",
+          "component": "/event/remove/index",
+          "meta": {
+            "icon": "DocumentDelete",
+            "title": "删除活动",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/event/list/:id",
+          "name": "eventList",
+          "component": "/event/list/index",
+          "meta": {
+            "icon": "List",
+            "title": "活动列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/event/find/:id",
+          "name": "findEvent",
+          "component": "/event/find/index",
+          "meta": {
+            "icon": "Search",
+            "title": "寻找活动",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/membership",
+      "name": "menbership",
+      "redirect": "/membership/add",
+      "meta": {
+        "icon": "User",
+        "title": "成员管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/membership/add",
+          "name": "addMembership",
+          "component": "/membership/add/index",
+          "meta": {
+            "icon": "DocumentAdd",
+            "title": "添加成员",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/membership/approve",
+          "name": "approveMembership",
+          "component": "/membership/approve/index",
+          "meta": {
+            "icon": "DocumentChecked",
+            "title": "申请列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/membership/find",
+          "name": "findMembership",
+          "component": "/membership/find/index",
+          "meta": {
+            "icon": "Search",
+            "title": "寻找成员",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/membership/remove/:id",
+          "name": "removeMembership",
+          "component": "/membership/remove/index",
+          "meta": {
+            "icon": "DocumentDelete",
+            "title": "删除成员",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/membership/list/:id",
+          "name": "membershipList",
+          "component": "/membership/list/index",
+          "meta": {
+            "icon": "List",
+            "title": "成员列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/membership/reject",
+          "name": "rejectMembership",
+          "component": "/membership/reject/index",
+          "meta": {
+            "icon": "Failed",
+            "title": "审批成员",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/notification",
+      "name": "notification",
+      "redirect": "/notification/send",
+      "meta": {
+        "icon": "Message",
+        "title": "消息管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/notification/send",
+          "name": "sendNotification",
+          "component": "/notification/send/index",
+          "meta": {
+            "icon": "ChatSquare",
+            "title": "发送消息",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/notification/user/:id",
+          "name": "notificationList",
+          "component": "/notification/send/index",
+          "meta": {
+            "icon": "MessageBox",
+            "title": "消息中心",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/expense",
+      "name": "expense",
+      "redirect": "/expense/submit",
+      "meta": {
+        "icon": "Coin",
+        "title": "费用管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/expense/submit",
+          "name": "submitExpense",
+          "component": "/expense/submit/index",
+          "meta": {
+            "icon": "DocumentAdd",
+            "title": "费用申请",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/expense/update/:id",
+          "name": "updateExpense",
+          "component": "/expense/update/index",
+          "meta": {
+            "icon": "Document",
+            "title": "申请修改",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/expense/list",
+          "name": "expenseList",
+          "component": "/expense/list",
+          "meta": {
+            "icon": "List",
+            "title": "费用申请列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/expense/approve/:id",
+          "name": "approveExpense",
+          "component": "/expense/approve/index",
+          "meta": {
+            "icon": "DocumentChecked",
+            "title": "费用申请审批",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/expense/find/:id",
+          "name": "findExpense",
+          "component": "/expense/find/index",
+          "meta": {
+            "icon": "Search",
+            "title": "查找申请",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/expense/list/:id",
+          "name": "expenseList",
+          "component": "/expense/list/index",
+          "meta": {
+            "icon": "List",
+            "title": "申请列表",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/participation",
+      "name": "participation",
+      "redirect": "/participation/join",
+      "meta": {
+        "icon": "Guide",
+        "title": "活动记录管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/participation/join",
+          "name": "joinParticipation",
+          "component": "/participation/join/index",
+          "meta": {
+            "icon": "DocumentAdd",
+            "title": "报名活动",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/participation/signIn",
+          "name": "signInParticipation",
+          "component": "/participation/signIn/index",
+          "meta": {
+            "icon": "Select",
+            "title": "活动签到",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/participation/event/:id",
+          "name": "eventParticipation",
+          "component": "/participation/event/index",
+          "meta": {
+            "icon": "Document",
+            "title": "活动参与记录",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/participation/user/:id",
+          "name": "userParticipation",
+          "component": "/participation/user/index",
+          "meta": {
+            "icon": "User",
+            "title": "用户参与活动记录",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    }
+  ],
+  "msg": "成功"
+}
