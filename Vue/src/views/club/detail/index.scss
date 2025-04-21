@@ -1,0 +1,105 @@
+.container {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+}
+
+.search-select-box {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-box {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .el-form-item {
+    display: flex;
+    align-items: center;
+
+    .el-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .el-button {
+      min-width: 80px;
+    }
+
+    .el-select {
+      flex: 1;
+      margin-right: 10px;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.details-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.break-word .el-descriptions-item__content {
+  white-space: pre-wrap;
+  overflow: hidden;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.edit-club-btn {
+  margin-top: 20px;
+  margin-right: 20px;
+  align-self: flex-end;
+  background-color: #409eff;
+  border-color: #409eff;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.edit-club-btn:hover {
+  background-color: #66b1ff;
+}
+
+.no-club {
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
